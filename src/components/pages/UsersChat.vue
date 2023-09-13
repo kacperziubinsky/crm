@@ -1,36 +1,31 @@
 <template>
     <div>
-        <h2>Lista klientów</h2>
+        <h2>Notatki</h2>
 
-        <baseItem
-        v-for="client in clients"
-        :key="client.id"
-        :company="client.company"
-        :name="client.name"
-        :mail="client.mail"
-        :phone="client.phone"
-        ></baseItem>
+        <baseNote
+        v-for="note in notes"
+        :key="note.id"
+        :date="note.id"
+        :author="note.author"
+        :text="note.text"
+        >
+        </baseNote>
     </div>
-
-    <button @click="addClient = !addClient">Dodaj klienta</button>
-    <ClientAdd v-if="addClient" @ClientData="add"></ClientAdd>
     
 </template>
 
 
 <script>
-import baseItem from '../UI/baseItem.vue';
-import ClientAdd from '../UI/addClient.vue';
+import baseNote from '../UI/baseNote.vue';
 export default{
     components:{
-        baseItem,
-        ClientAdd
+        baseNote,
     },
     data(){
         return {
-            clients: [
-                {id: 0, company: 'Campus', name: 'Wojciech', mail: 'kontakt@campus.pl', phone: '+48 343 232 123'},
-                {id: 1, company: 'CRR', name: 'Zbigniew', mail: 'kontakt@crr.pl', phone: '+48 123 123 123'}
+            notes: [
+                {id: '1.9.2023', author: 'Kacper', text: 'Randomowa treść here!'},
+                {id: '13.9.2023', author: 'Piotr', text: 'Losowa treść tutaj!'}
             ],
             addClient: false
         }

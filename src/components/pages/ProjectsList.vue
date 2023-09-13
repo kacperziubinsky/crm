@@ -2,31 +2,30 @@
     <div>
         <h2>Status projektów</h2>
 
-        <baseTask
-        v-for="client in clients"
-        :key="client.id"
-        :company="client.company"
-        :task="client.task"
-        @change-task="newTask"
-        ></baseTask>
+        <baseProject
+        v-for="project in projects"
+        :key="project.id"
+        :company="project.company"
+        :name="project.name"
+        :tasks="project.tasks"
+        >
+        </baseProject>
     </div>
     
 </template>
 
 
 <script>
-import baseTask from '../UI/baseTask.vue';
-import ClientAdd from '../UI/addClient.vue';
+import baseProject from '../UI/baseProject.vue';
 export default{
     components:{
-        baseTask,
-        ClientAdd
+        baseProject    
     },
     data(){
         return {
-            clients: [
-                {id: 0, company: 'Campus', name: 'Wojciech', mail: 'kontakt@campus.pl', phone: '+48 343 232 123', task: 'Zadzwonić, zbałamucić'},
-                {id: 1, company: 'CRR', name: 'Zbigniew', mail: 'kontakt@crr.pl', phone: '+48 123 123 123', task: 'Żądać kasy!'}
+            projects: [
+                {id: 0, company: 'Campus', name: 'Strona Internetowa', tasks: ['Projekt strony głównej', 'Dodać SEO', 'Stworzyć logo']},
+                {id: 1, company: 'Cryo', name: 'Sklep Voucher', tasks: ['zainstalować Woocomerce', 'Dodać produkty', 'Przetestować płatność']}
             ],
             addClient: false
         }

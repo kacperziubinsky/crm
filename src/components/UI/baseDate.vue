@@ -1,17 +1,16 @@
 <template>
 
     <section>
-        <h4>{{ company }} <h5> {{ name }}</h5></h4>
-        <ul>
-            <li v-for="task in tasks" :key="task">{{ task }}</li>
-        </ul>
+        <h4>{{ task }}</h4>
+
+        <h5>{{ date }}</h5>
     </section>
 
 </template>
 
 <script>
 export default{
-    props: ['company', 'name', 'tasks']
+    props: ['task', 'date']
 }
 </script>
 
@@ -27,10 +26,6 @@ a{
     color: white;
     text-decoration: none;
     margin-right: 2rem;
-}
-h4,h5{
-    display: inline;
-    
 }
 
 </style>

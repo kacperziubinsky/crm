@@ -1,17 +1,25 @@
 <template>
 
     <section>
-        <h4>{{ company }} <h5> {{ name }}</h5></h4>
-        <ul>
-            <li v-for="task in tasks" :key="task">{{ task }}</li>
-        </ul>
+        <h4>{{ date }} <h5> {{ author }}</h5></h4>
+        <p>
+            {{ text }}
+        </p>
     </section>
 
 </template>
 
 <script>
 export default{
-    props: ['company', 'name', 'tasks']
+    props: ['date', 'author', 'text'],
+    computed:{
+        ClientMail(){
+            return "mailto:" + this.mail;
+        },
+        ClientPhone(){
+            return "tel:" + this.phone;
+        },
+    }
 }
 </script>
 

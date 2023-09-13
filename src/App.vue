@@ -2,20 +2,14 @@
   <section class="area">
         <aside>
 
-
-          <img src="@/assets/tasks.png" alt="">
-          <img src="@/assets/clients.png" alt="">
-          <img src="@/assets/projects.png" alt="">
-          <img src="@/assets/calendar.png" alt="">
-
-
+          <the-header></the-header>
 
         </aside>
         
     
         <main>
             
-          <ClientList/>
+          <router-view></router-view>
 
     
         </main>
@@ -25,18 +19,21 @@
 </template>
 
 <script>
-import ClientList from './components/pages/TasksList.vue';
+import TheHeader from './components/UI/TheMenu.vue';
 export default {
   components:{
-    ClientList
+    TheHeader
   }
 }
 </script>
 
 <style>     
+@import url('https://fonts.googleapis.com/css2?family=Inter');
   *{
     box-sizing: border-box;
     margin: 0;
+    font-family: 'Archivo Black', sans-serif;
+
   }
   h2{
     text-align: center;
@@ -50,8 +47,6 @@ export default {
     height: 100%;
     background-color: #822378;
     text-align: center;
-    gap: 33px;
-    display: grid;
   }
   main{
     height: 100%;
@@ -59,7 +54,7 @@ export default {
     overflow: auto;
   }
   img{
-    margin: 2rem 0;
+    margin: 2rem 1rem;
   }
 
 

@@ -40,7 +40,7 @@ export default{
 
 <style>
 form{
-    background-color:  #5A1853;;
+    background-color:  #5A1853;
     border-radius: 10px;
     padding: 1rem;
     margin: 1rem;
@@ -56,4 +56,16 @@ input[type=submit]{
     border: 0;
     border-radius: 10px;
 }
+label,input{
+    margin: 1rem;
+    max-width: 100%;
+    display: inline;
+}
+
+@media only screen and (max-width: 1440px) {
+    label,input{
+        display: block;
+    }
+}
+
 </style>
