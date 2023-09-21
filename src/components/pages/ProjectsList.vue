@@ -8,6 +8,7 @@
         :company="project.company"
         :name="project.name"
         :tasks="project.tasks"
+        :id="project.id"
         >
         </baseProject>
     </div>
@@ -16,17 +17,13 @@
 
 
 <script>
-import baseProject from '../UI/baseProject.vue';
+import baseProject from '../bases/baseProject.vue';
 export default{
     components:{
         baseProject    
     },
     data(){
         return {
-            projects: [
-                {id: 0, company: 'Campus', name: 'Strona Internetowa', tasks: ['Projekt strony głównej', 'Dodać SEO', 'Stworzyć logo']},
-                {id: 1, company: 'Cryo', name: 'Sklep Voucher', tasks: ['zainstalować Woocomerce', 'Dodać produkty', 'Przetestować płatność']}
-            ],
             addClient: false
         }
     },
@@ -35,6 +32,11 @@ export default{
             const client = this.clients.find(client => client.company.trim() === name);
             client.task = task;
 
+        }
+    },
+    computed:{
+        projects(){
+            return this.$store.state.projects;
         }
     }
 }

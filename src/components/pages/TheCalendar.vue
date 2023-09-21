@@ -32,7 +32,7 @@
 
 
 <script>
-import baseDate from '../UI/baseDate.vue';
+import baseDate from '../bases/baseDate.vue';
 export default{
     components:{
         baseDate

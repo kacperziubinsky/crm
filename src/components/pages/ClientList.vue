@@ -9,6 +9,8 @@
         :name="client.name"
         :mail="client.mail"
         :phone="client.phone"
+        :id="client.id"
+        @delete-client="deleteItem"
         ></baseItem>
     </div>
 
@@ -19,8 +21,8 @@
 
 
 <script>
-import baseItem from '../UI/baseItem.vue';
-import ClientAdd from '../UI/addClient.vue';
+import baseItem from '../bases/baseItem.vue';
+import ClientAdd from '../increase/addClient.vue';
 export default{
     components:{
         baseItem,
@@ -28,24 +30,27 @@ export default{
     },
     data(){
         return {
-            clients: [
-                {id: 0, company: 'Campus', name: 'Wojciech', mail: 'kontakt@campus.pl', phone: '+48 343 232 123'},
-                {id: 1, company: 'CRR', name: 'Zbigniew', mail: 'kontakt@crr.pl', phone: '+48 123 123 123'}
-            ],
             addClient: false
         }
     },
     methods:{
         add(clientCompany, clientName, clientMail, clientPhone){
-            const today = new Date();
-            const data = {
-                id: today.getTime(),
-                company: clientCompany,
-                name: clientName,
-                mail: clientMail,
-                phone: clientPhone
-            };
-            this.clients.push(data);
+            this.$store.commit('add', {
+                clientCompany: clientCompany,
+                clientName: clientName,
+                clientMail: clientMail,
+                clientPhone: clientPhone
+            });
+        },
+        deleteItem(id){
+            this.$store.commit('delete', {
+                clientId: id
+            });
+        }
+    },
+    computed:{
+        clients(){
+            return this.$store.state.clients;
         }
     }
 }

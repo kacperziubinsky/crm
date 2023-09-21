@@ -1,19 +1,27 @@
 <template>
 
     <section>
-        <h4>{{ company }} <h5> {{ name }}</h5></h4>
+        <div>
+            <h4>{{ company }} <h5> {{ name }}</h5></h4>
         <p>
             <a :href="ClientMail">{{ mail }}</a>
             
             <a :href="ClientPhone">{{ phone }}</a>
         </p>
+
+        </div>
+        <div>
+            <p @click="DeleteClient">[USUŃ]</p>
+        </div>
+
+        
     </section>
 
 </template>
 
 <script>
 export default{
-    props: ['company', 'name', 'mail', 'phone'],
+    props: ['company', 'name', 'mail', 'phone', 'id'],
     computed:{
         ClientMail(){
             return "mailto:" + this.mail;
@@ -21,6 +29,13 @@ export default{
         ClientPhone(){
             return "tel:" + this.phone;
         },
+    },
+    methods:{
+        DeleteClient(){
+            if(confirm("Czy jesteś pewien?") === true){
+                this.$emit('delete-client', this.id);
+            }
+        }
     }
 }
 </script>
@@ -32,6 +47,9 @@ section{
     padding: 1rem;
     margin: 1rem;
     color: white !important;
+    display: flex;
+    justify-content:space-between;
+    
 }
 a{
     color: white;

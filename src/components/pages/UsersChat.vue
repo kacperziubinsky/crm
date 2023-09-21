@@ -16,7 +16,7 @@
 
 
 <script>
-import baseNote from '../UI/baseNote.vue';
+import baseNote from '../bases/baseNote.vue';
 export default{
     components:{
         baseNote,

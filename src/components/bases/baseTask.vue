@@ -2,10 +2,14 @@
 
     <section>
         <h4>{{ company }}</h4>
-        <p @click="edit = !edit">
+        <p>
             {{ task }}
         </p>
-        <textarea v-if="edit" v-on:keyup.enter="change"  v-model="newTask"  rows="5"></textarea>
+        <p @click="edit = !edit">[EDYTUJ]</p>
+        <div v-if="edit" v>
+            <textarea v-model="newTask"  rows="3"></textarea>
+            <button @click="change">Zatwierdź</button>
+        </div>
     </section>
 
 </template>
