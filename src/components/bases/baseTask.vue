@@ -5,8 +5,13 @@
         <p>
             {{ task }}
         </p>
-        <p @click="edit = !edit">[EDYTUJ]</p>
-        <div v-if="edit" v>
+
+        <div class="nav">        
+            <p @click="edit = !edit">[EDYTUJ]</p>
+            <span v-if="edit" @click="edit = !edit">[ANULUJ]</span>
+        </div>
+
+        <div v-if="edit">
             <textarea v-model="newTask"  rows="3"></textarea>
             <button @click="change">Zatwierdź</button>
         </div>
@@ -47,5 +52,10 @@ a{
 }
 textarea{
     width: 100%;
+}
+.nav span,
+.nav p{
+    display: inline-block;
+    margin-right: 1rem;
 }
 </style>

@@ -12,5 +12,11 @@ export default {
     },
     delete(state, payload){
         state.clients.splice(payload.id, 1);
-    }
+    },
+    deleteProject(state, projectId) {
+        const index = state.projects.findIndex(project => project.id === projectId);
+        if (index !== -1) {
+          state.projects.splice(index, 1);
+        }
+      }
 }

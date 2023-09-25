@@ -27,13 +27,6 @@ export default{
             addClient: false
         }
     },
-    methods:{
-        newTask(name, task){
-            const client = this.clients.find(client => client.company.trim() === name);
-            client.task = task;
-
-        }
-    },
     computed:{
         projects(){
             return this.$store.state.projects;
