@@ -5,7 +5,6 @@
         <section>
 
             <h4>{{ company }} <h5> {{ name }}</h5></h4>
-
          </section>
 
     </RouterLink>

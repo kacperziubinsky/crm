@@ -18,5 +18,10 @@ export default {
         if (index !== -1) {
           state.projects.splice(index, 1);
         }
-      }
+    },
+    addTask(state, projectId, value){
+        const project = state.projects.find(p => p.id === Number(projectId));
+        project.tasks.push(value);
+        
+    }
 }
